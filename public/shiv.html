@@ -1,0 +1,24 @@
+<html>
+	<body>
+		<pre id="apiResponse">put text below</pre>
+		<input id="test"/>
+		<button id="button">submit</button>
+		<script type="text/javascript" src ="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script>
+			$("#button").click(function() {
+				
+				//console.log('/exp/jquery?' +'id='+$('#test').val());
+				
+				$.ajax({
+					type: 'GET',
+					url: '/exp/jquery?' +'id='+$('#test').val(),//your URL here
+					success: function(data, textStatus, jqXHR) {
+						var output = JSON.stringify(data,null,2);
+						console.log(output);
+						$('#apiResponse').text(output);
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
